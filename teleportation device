@@ -1,0 +1,13 @@
+local TeleportService = game:GetService("TeleportService")
+local button = script.Parent
+
+local placeIds = {place ID,place ID,place ID}
+local currentIndex = 1
+
+button.MouseClick:Connect(function(player)
+    local nextPlaceId = placeIds[currentIndex]
+    
+    TeleportService:Teleport(nextPlaceId, player)
+    
+    currentIndex = currentIndex % #placeIds + 1
+end)
